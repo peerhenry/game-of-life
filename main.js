@@ -1,5 +1,5 @@
-var grid_rows;
-var grid_columns;
+var grid_rows = 45;
+var grid_columns = 80;
 var dataArray;
 var isRunning = false;
 const lifeless = "#222";
@@ -56,8 +56,6 @@ function setButtonText(){
 
 function initGame(){
 	// init data array
-	grid_rows = 36;
-	grid_columns = 50;
 	dataArray = new Array(grid_rows);
 	for(var i = 0; i<grid_rows; i++){
 		dataArray[i] = new Array(grid_columns);
