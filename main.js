@@ -17,10 +17,10 @@ window.onload=function(){
 
 	// input
 	document.addEventListener("keydown", keyPush);
-	document.addEventListener("click", function(evt){mouseClick(canvas, evt)});
+	document.addEventListener("click", function(evt){ mouseClick(canvas, evt) });
 
 	// game loop
-	setInterval(function(){draw(ctx)}, 1000/15);
+	setInterval(function(){ draw(ctx) }, 1000/15);
 	updater = setInterval(function(){updateData()}, 1000);
 	setButtonText();
 }
@@ -30,7 +30,7 @@ function setSpeedFactor(){
 	if(isNaN(factor)) return;
 	clearInterval(updater);
 	stepTime = 1000/factor;
-	setInterval(function(){updateData()}, stepTime);
+	updater = setInterval(function(){updateData()}, stepTime);
 	setButtonText();
 }
 
@@ -178,6 +178,7 @@ function mouseClick(canvas, evt){
 	if(m_i >= 0 && m_i < grid_rows && m_j >= 0 && m_j < grid_columns){
 		flip(m_i, m_j);
 	}
+	setSpeedFactor();
 }
 
 function getMousePos(canvas, evt) {
